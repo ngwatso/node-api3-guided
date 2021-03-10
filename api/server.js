@@ -4,6 +4,7 @@ const hubsRouter = require('./hubs/hubs-router.js');
 
 const server = express();
 
+// middlewares are functions and are passed into server.use
 server.use(express.json());
 
 server.use('/api/hubs', hubsRouter);
