@@ -10,6 +10,8 @@ server.use(express.json()); // express.json when invoked returns a middleware fu
 
 server.use('/api/hubs', hubsRouter);
 
+server.use(morgan('combined'));
+
 server.get('/', (req, res) => {
   res.send(`
     <h2>Lambda Hubs API</h2>
@@ -17,6 +19,5 @@ server.get('/', (req, res) => {
   `);
 });
 
-server.use(morgan('combined'));
 
 module.exports = server;
