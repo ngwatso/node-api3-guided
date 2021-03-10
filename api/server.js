@@ -10,7 +10,7 @@ server.use(express.json()); // express.json when invoked returns a middleware fu
 server.use(morgan('dev'));
 
 server.use((req, res, next) => {
-  
+  next()
 })
 
 server.use('/api/hubs', hubsRouter);
