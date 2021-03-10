@@ -30,15 +30,8 @@ server.get('/', (req, res) => {
   `);
 });
 
-
 server.use((err, req, res, next) => {
-
-})
-
-
-
-server.use((err, req, res, next) => {
-
+  res.status(500).json()
 })
 
 module.exports = server;
