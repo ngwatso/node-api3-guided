@@ -7,7 +7,7 @@ const checkId = async (req, res, next) => {
       message: `hub with id ${req.params.id} does not exist`
     })
   } else {
-    
+    req.hub = hub
     next()
   }
 }
