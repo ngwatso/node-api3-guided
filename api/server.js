@@ -23,7 +23,7 @@ server.use((req, res, next) => {
 
 server.use('/api/hubs', hubsRouter);
 
-server.get('/', (req, res) => {
+server.get('/', addLambdaHeader, (req, res) => {
   // throw new Error('argh! disaster')
   res.send(`
   <h2>Lambda Hubs API</h2>
