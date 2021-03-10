@@ -117,4 +117,13 @@ router.post('/:id/messages', (req, res) => {
     });
 });
 
+router.use((err, req, res, next) => {
+  res.status(500).json({
+    message: err.message, // DEV
+    stack: err.stack, // DEV
+    custom: 'something went terrible in the hubs router', // PRODUCTION
+  })
+})
+
+
 module.exports = router;

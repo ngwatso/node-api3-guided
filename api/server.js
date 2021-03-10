@@ -35,7 +35,7 @@ server.use((err, req, res, next) => {
   res.status(500).json({
     message: err.message, // DEV
     stack: err.stack, // DEV
-    custom: 'something went terrible', // PRODUCTION
+    custom: 'something went terrible in general', // PRODUCTION
   })
 })
 
