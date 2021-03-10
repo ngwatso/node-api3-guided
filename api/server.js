@@ -7,9 +7,9 @@ const server = express();
 
 // middlewares are functions and are passed into server.use
 server.use(express.json()); // express.json when invoked returns a middleware function
+server.use(morgan('dev'));
 
 server.use('/api/hubs', hubsRouter);
-
 
 server.get('/', (req, res) => {
   res.send(`
@@ -18,6 +18,5 @@ server.get('/', (req, res) => {
   `);
 });
 
-server.use(morgan('dev'));
 
 module.exports = server;
