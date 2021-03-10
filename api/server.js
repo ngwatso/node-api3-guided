@@ -9,6 +9,8 @@ const server = express();
 server.use(express.json()); // express.json when invoked returns a middleware function
 server.use(morgan('dev'));
 
+server.use()
+
 server.use('/api/hubs', hubsRouter);
 
 server.get('/', (req, res) => {
