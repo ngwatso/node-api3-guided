@@ -20,7 +20,7 @@ router.get('/', async (req, res, next) => {
   } catch (err) { next(err) }
 });
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', checkId, (req, res, next) => {
   Hubs.findById(req.params.id)
     .then(hub => {
       if (hub) {
