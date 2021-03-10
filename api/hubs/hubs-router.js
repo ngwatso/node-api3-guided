@@ -32,7 +32,7 @@ router.post('/', validateHub, (req, res, next) => {
     .catch(next);
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', checkId, (req, res, next) => {
   Hubs.remove(req.params.id)
     .then(() => {
       res.status(200).json({ message: 'The hub has been nuked' });
@@ -40,7 +40,7 @@ router.delete('/:id', (req, res, next) => {
     .catch(next);
 });
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id', checkId, (req, res, next) => {
   Hubs.update(req.params.id, req.body)
     .then(hub => {
       res.status(200).json(hub);
@@ -48,7 +48,7 @@ router.put('/:id', (req, res, next) => {
     .catch(next);
 });
 
-router.get('/:id/messages', (req, res) => {
+router.get('/:id/messages', checkId, (req, res) => {
   Hubs.findHubMessages(req.params.id)
     .then(messages => {
       res.status(200).json(messages);
@@ -62,7 +62,7 @@ router.get('/:id/messages', (req, res) => {
     });
 });
 
-router.post('/:id/messages', (req, res) => {
+router.post('/:id/messages', checkId, (req, res) => {
   const messageInfo = { ...req.body, hub_id: req.params.id };
 
   Messages.add(messageInfo)
