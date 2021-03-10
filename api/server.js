@@ -7,20 +7,20 @@ const server = express();
 
 // middlewares are functions and are passed into server.use
 server.use(express.json()); // express.json when invoked returns a middleware function
+server.use(morgan('dev'));
 
-server.use((req, res, next) => {
-  req.foo = 'lady gaga'
-  console.log('the path is', req.path);
-  next();
-})
+
 
 server.use((req, res, next) => {
   req.foo = 'iron maiden'
-  console.log('the path is', req.path);
+  console.log('iron maiden');
   next();
 })
-
-server.use(morgan('dev'));
+server.use((req, res, next) => {
+  req.foo = 'lady gaga'
+  console.log('lady gaga');
+  next();
+})
 
 server.use('/api/hubs', hubsRouter);
 
