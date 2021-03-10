@@ -10,8 +10,9 @@ server.use(express.json()); // express.json when invoked returns a middleware fu
 server.use(morgan('dev'));
 
 server.use((req, res, next) => {
-  console.log('the path is', req.path)
-  next()
+  req.foo = 'lady gaga'
+  console.log('the path is', req.path);
+  next();
 })
 
 server.use('/api/hubs', hubsRouter);
