@@ -31,7 +31,7 @@ server.get('/', (req, res) => {
   `);
 });
 
-server.use((err, req, res, next) => {
+server.use((err, req, res) => {
   res.status(500).json({
     message: err.message, // DEV
     stack: err.stack, // DEV
