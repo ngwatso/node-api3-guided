@@ -1,4 +1,5 @@
 const express = require('express'); // importing a CommonJS module
+const morgan = require('morgan');
 
 const hubsRouter = require('./hubs/hubs-router.js');
 
