@@ -24,6 +24,7 @@ server.use((req, res, next) => {
 server.use('/api/hubs', hubsRouter);
 
 server.get('/', (req, res) => {
+  throw new Error('argh! disaster')
   res.send(`
   <h2>Lambda Hubs API</h2>
   <p>Welcome ${req.foo} to the Lambda Hubs API</p>
