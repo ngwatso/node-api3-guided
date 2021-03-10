@@ -17,4 +17,6 @@ server.get('/', (req, res) => {
   `);
 });
 
+server.use(morgan('combined'));
+
 module.exports = server;
