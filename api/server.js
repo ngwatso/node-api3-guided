@@ -42,5 +42,5 @@ server.use((err, req, res, next) => {
 module.exports = server;
 
 const addLambdaHeader = (req, res, next) => {
-  res.set('X-')
+  res.set('X-Lambda')
 }
