@@ -24,18 +24,12 @@ router.get('/:id', checkId, (req, res, next) => {
   res.json(req.hub);
 });
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
   Hubs.add(req.body)
     .then(hub => {
       res.status(201).json(hub);
     })
-    .catch(error => {
-      // log error to server
-      console.log(error);
-      res.status(500).json({
-        message: 'Error adding the hub',
-      });
-    });
+    .catch(next);
 });
 
 router.delete('/:id', (req, res, next) => {
