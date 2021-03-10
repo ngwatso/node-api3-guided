@@ -21,15 +21,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id', checkId, (req, res, next) => {
-  Hubs.findById(req.params.id)
-    .then(hub => {
-      if (hub) {
-        res.status(200).json(hub);
-      } else {
-        res.status(404).json({ message: 'Hub not found' });
-      }
-    })
-    .catch(next);
+  res.json(req.hub);
 });
 
 router.post('/', (req, res) => {
