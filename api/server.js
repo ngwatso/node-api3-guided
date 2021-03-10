@@ -21,7 +21,7 @@ server.use((req, res, next) => {
   next();
 })
 
-server.use('/api/hubs', hubsRouter);
+server.use('/api/hubs', addLambdaHeader, hubsRouter);
 
 server.get('/', addLambdaHeader, (req, res) => {
   // throw new Error('argh! disaster')
