@@ -1,5 +1,5 @@
 const express = require('express');
-const { checkId } = require('./hubs-middleware');
+const { checkId, validateHub } = require('./hubs-middleware');
 const Hubs = require('./hubs-model.js');
 const Messages = require('../messages/messages-model.js');
 
@@ -24,7 +24,7 @@ router.get('/:id', checkId, (req, res, next) => {
   res.json(req.hub);
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', validateHub, (req, res, next) => {
   Hubs.add(req.body)
     .then(hub => {
       res.status(201).json(hub);
