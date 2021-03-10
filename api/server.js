@@ -42,10 +42,8 @@ server.use((err, req, res, next) => {
 })
 
 module.exports = server;
-var a = 7
 
 function addLambdaHeader(req, res, next) {
-  console.log(a)
   res.set('X-Lambda', 'rocks');
   next();
 }
