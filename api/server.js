@@ -9,8 +9,6 @@ const server = express();
 server.use(express.json()); // express.json when invoked returns a middleware function
 server.use(morgan('dev'));
 
-
-
 server.use((req, res, next) => {
   req.foo = 'iron maiden'
   console.log('iron maiden');
