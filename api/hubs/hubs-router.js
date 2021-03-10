@@ -15,11 +15,10 @@ router.get('/', (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
   try {
-    const hubs = await 
-  } catch (err) {
-    next(err)
-  }
-})
+    const hubs = await Hubs.find(req.query)
+    res.json(hubs)
+  } catch (err) { next(err) }
+});
 
 router.get('/:id', (req, res) => {
   Hubs.findById(req.params.id)
