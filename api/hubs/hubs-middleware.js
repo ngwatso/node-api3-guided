@@ -17,7 +17,11 @@ const checkId = async (req, res, next) => {
 }
 
 const validateHub = (req, res, next) => {
-  if (!req.body.name)
+  if (!req.body.name.trim()) {
+    res.status(422).json({
+      message: 'name is required',
+    })
+  }
 }
 
 module.exports = {
