@@ -1,5 +1,6 @@
 const express = require('express'); // importing a CommonJS module
 const morgan = require('morgan');
+const cors = require('cors');
 
 const hubsRouter = require('./hubs/hubs-router.js');
 
@@ -8,6 +9,7 @@ const server = express();
 // middlewares are functions and are passed into server.use
 server.use(express.json()); // express.json when invoked returns a middleware function
 server.use(morgan('dev'));
+server.use(cors());
 
 server.use((req, res, next) => {
   req.foo = 'iron maiden'
