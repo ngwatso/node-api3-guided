@@ -20,7 +20,7 @@ router.get('/', async (req, res, next) => {
   } catch (err) { next(err) }
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', (req, res, next) => {
   Hubs.findById(req.params.id)
     .then(hub => {
       if (hub) {
@@ -29,13 +29,7 @@ router.get('/:id', (req, res) => {
         res.status(404).json({ message: 'Hub not found' });
       }
     })
-    .catch(error => {
-      // log error to server
-      console.log(error);
-      res.status(500).json({
-        message: 'Error retrieving the hub',
-      });
-    });
+    .catch(next);
 });
 
 router.post('/', (req, res) => {
