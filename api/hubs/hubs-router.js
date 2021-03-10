@@ -20,7 +20,7 @@ router.get('/', async (req, res, next) => {
   } catch (err) { next(err) }
 });
 
-router.get('/:id', checkId, (req, res, next) => {
+router.get('/:id', checkId, (req, res) => {
   res.json(req.hub);
 });
 

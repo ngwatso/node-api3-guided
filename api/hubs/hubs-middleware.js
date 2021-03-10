@@ -16,6 +16,11 @@ const checkId = async (req, res, next) => {
   }
 }
 
+const validateHub = (req, res, next) => {
+  if (!req.body.name)
+}
+
 module.exports = {
   checkId,
+  validateHub,
 }
