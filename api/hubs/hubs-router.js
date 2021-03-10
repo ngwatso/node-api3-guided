@@ -112,7 +112,7 @@ router.post('/:id/messages', (req, res) => {
     });
 });
 
-router.use((err, req, res, next) => {
+router.use((err, req, res, next) => { // eslint-disable-line
   res.status(500).json({
     message: err.message, // DEV
     stack: err.stack, // DEV
