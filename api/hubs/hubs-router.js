@@ -14,7 +14,11 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/', async (req, res, next) => {
-  
+  try {
+    const hubs = await 
+  } catch (err) {
+    next(err)
+  }
 })
 
 router.get('/:id', (req, res) => {
