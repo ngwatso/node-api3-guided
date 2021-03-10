@@ -14,6 +14,7 @@ server.use((req, res, next) => {
   console.log('iron maiden');
   next();
 })
+
 server.use((req, res, next) => {
   req.foo = 'lady gaga'
   console.log('lady gaga');
@@ -28,6 +29,7 @@ server.get('/', (req, res) => {
   <p>Welcome ${req.foo} to the Lambda Hubs API</p>
   `);
 });
+
 
 
 module.exports = server;
