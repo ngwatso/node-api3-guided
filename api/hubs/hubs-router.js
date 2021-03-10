@@ -10,10 +10,12 @@ router.get('/', (req, res, next) => {
     .then(hubs => {
       res.status(200).json(hubs);
     })
-    .catch(error => {
-      next(error) 
-    });
+    .catch(next); // let my custom error handling middleware deal with this
 });
+
+router.get('/', async (req, res, next) => {
+  
+})
 
 router.get('/:id', (req, res) => {
   Hubs.findById(req.params.id)
